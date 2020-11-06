@@ -6,14 +6,12 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 11:06:26 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/05 13:48:30 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/06 14:40:42 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (c < -1 && c >= -128)
-		return (256 + c);
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	return (c);

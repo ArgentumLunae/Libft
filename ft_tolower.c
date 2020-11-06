@@ -6,14 +6,12 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 11:31:57 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/05 13:47:55 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/06 14:40:38 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c < -1 && c >= -128)
-		return (256 + c);
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
 	return (c);
