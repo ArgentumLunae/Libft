@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear.c                                      :+:    :+:            */
+/*   ft_lstiter.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/07 14:39:45 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/10 11:32:40 by mteerlin      ########   odam.nl         */
+/*   Created: 2020/11/10 11:18:15 by mteerlin      #+#    #+#                 */
+/*   Updated: 2020/11/10 11:35:43 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-
-	if (lst == NULL)
-		return ;
-	while (*lst != NULL)
+	while (lst != NULL)
 	{
-		temp = *lst;
-		*lst = (*lst)->next;
-		(*del)(temp);
+		(*f)(lst->content);
+		lst = lst->next;
 	}
-	return ;
 }
