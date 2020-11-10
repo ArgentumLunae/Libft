@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 19:45:41 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/04 14:59:28 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/09 11:28:28 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*mapi;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	if (!(mapi = (char *)malloc((ft_strlen((char *)s) + 1) * sizeof(char))))
 		return (0);
 	while (i < ft_strlen((char *)s))

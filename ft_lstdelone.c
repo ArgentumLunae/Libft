@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_lstdelone.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 13:51:00 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 11:20:56 by mteerlin      ########   odam.nl         */
+/*   Created: 2020/11/07 14:09:49 by mteerlin      #+#    #+#                 */
+/*   Updated: 2020/11/09 17:59:37 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t offset;
-	size_t len;
+	t_list *temp;
 
-	if (src == NULL)
-		return (0);
-	len = ft_strlen((char *)src);
-	offset = 0;
-	if (dst == NULL || dstsize == 0)
-		return (len);
-	while ((offset < (dstsize - 1)) && (src[offset] != '\0'))
-	{
-		dst[offset] = src[offset];
-		offset++;
-	}
-	dst[offset] = '\0';
-	return (len);
+	if (lst == NULL)
+		return ;
+	temp = lst;
+	lst = lst->next;
+	(*del)(temp);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 14:49:17 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/05 11:42:39 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/09 10:47:41 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ char	*ft_strdup(char *s)
 	char	*dup;
 
 	len = (ft_strlen(s) + 1);
-	if (!(dup = (char *)malloc((ft_strlen(s) + 1) * sizeof(char))))
-		return (0);
+	dup = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (dup == NULL)
+		return (NULL);
 	ft_strlcpy(dup, s, len);
 	return (dup);
 }

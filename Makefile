@@ -6,40 +6,53 @@
 #    By: mteerlin <mteerlin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/28 15:02:52 by mteerlin      #+#    #+#                  #
-#    Updated: 2020/11/04 12:06:05 by mteerlin      ########   odam.nl          #
+#    Updated: 2020/11/09 17:59:21 by mteerlin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-					ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memccpy.c \
-					ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c\
-					ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-					ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c \
-					ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-					ft_strtrim.c ft_strrchr.c ft_substr.c ft_tolower.c ft_toupper.c
+NAME 		= libft.a
+REG_OBJ		= ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o \
+				ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o \
+				ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
+				ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o \
+				ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o \
+				ft_strdup.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o \
+				ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o \
+				ft_strtrim.o ft_strrchr.o ft_substr.o ft_tolower.o \
+				ft_toupper.o
+BONUS_OBJ	= ft_lstadd_back.o ft_lstadd_front.o ft_lstdelone.o\
+				ft_lstlast.o ft_lstsize.o
+HEADER		= libft.h
+CFLAGS 		= -Wall -Wextra -Werror
+ifdef		WITH_BONUS
+OBJECTS		= $(REG_OBJ) $(BONUS_OBJ)
+else
+OBJECTS		= $(REG_OBJ)
+endif
 
-OBJECTS 		= $(SRCS:.c=.o)
+all: 		$(NAME)
 
-CC 				= gcc
+$(NAME):	$(OBJECTS)
+				ar rcs $(NAME) $(REG_OBJ) $(BONUS_OBJ)
 
-CFLAGS 			= -Wall -Wextra -Werror -I.
+%.o:		%.c $(HEADER)
+			$(CC) -c $(CFLAGS) -o $@ $<
 
-NAME 			= libft.a
+bonus:
+			$(MAKE) WITH_BONUS=1 all
 
-all: 			$(NAME)
-
-$(NAME):		$(OBJECTS)
-					ar rcs $(NAME) $(OBJECTS)
-
-so:				
-				$(CC) -shared -o libft.so -fPIC $(SRCS)
+so:
+			$(CC) -shared -o libft.so -fPIC $(REG_OBJ) $(BONUS_OBJ)
 
 clean:
-				rm -f *.o *.so
+			rm -f *.o *.so
 
-fclean:			clean
-				rm -f $(NAME)
+fclean:			
+			$(MAKE) clean
+			rm -f $(NAME)
 
-re:				fclean $(NAME)
+re:				
+			$(MAKE) fclean 
+			$(MAKE) all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re

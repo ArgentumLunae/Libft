@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_lstclear.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 13:51:00 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 11:20:56 by mteerlin      ########   odam.nl         */
+/*   Created: 2020/11/07 14:39:45 by mteerlin      #+#    #+#                 */
+/*   Updated: 2020/11/09 17:58:49 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t offset;
-	size_t len;
+	t_list	*temp;
 
-	if (src == NULL)
-		return (0);
-	len = ft_strlen((char *)src);
-	offset = 0;
-	if (dst == NULL || dstsize == 0)
-		return (len);
-	while ((offset < (dstsize - 1)) && (src[offset] != '\0'))
+	if (lst == NULL)
+		return ;
+	while (*lst != NULL)
 	{
-		dst[offset] = src[offset];
-		offset++;
+		temp = *lst;
+		ft_putstr_fd((*lst)->content, 1);
+		*lst = (*lst)->next;
+		(*del)(temp);
 	}
-	dst[offset] = '\0';
-	return (len);
+	return ;
 }

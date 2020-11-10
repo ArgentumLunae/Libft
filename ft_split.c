@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 17:41:54 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/06 13:18:53 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/09 11:56:55 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ static unsigned int	wordlen(char const *s, unsigned int start, char c)
 	return (len);
 }
 
+static void			freesplit(char **split, int offset)
+{
+	while (offset > 0)
+	{
+		free(split[offset]);
+		offset--;
+	}
+}
+
 char				**ft_split(char const *s, char c)
 {
 	unsigned int	len;
@@ -68,13 +77,21 @@ char				**ft_split(char const *s, char c)
 	char			**split;
 
 	offset = 0;
-	if (!(split = (char **)malloc((wordcount(s, c) + 1) * sizeof(char *))))
-		return (0);
+	if (s == NULL)
+		return (NULL);
+	split = (char **)malloc((wordcount(s, c) + 1) * sizeof(char *));
+	if (split == NULL)
+		return (NULL);
 	while (offset < wordcount(s, c))
 	{
 		start = wordstart(s, c, offset + 1);
 		len = wordlen(s, start, c);
 		split[offset] = ft_substr(s, start, len);
+		if (split[offset] == NULL)
+		{
+			freesplit(split, offset);
+			break ;
+		}
 		offset++;
 	}
 	split[wordcount(s, c)] = NULL;

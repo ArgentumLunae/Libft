@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 13:31:26 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/05 16:56:54 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/09 11:24:35 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sstr;
 
-	if (!(sstr = (char *)malloc((len + 1) * sizeof(char))))
-		return (0);
+	if (s == NULL)
+		return (NULL);
+	sstr = (char *)malloc((len + 1) * sizeof(char));
+	if (sstr == NULL)
+		return (NULL);
 	if (start > ft_strlen((char *)s))
 		ft_strlcpy(sstr, "", len + 1);
 	else

@@ -6,13 +6,13 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:30:10 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/10/26 16:35:28 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/09 11:33:01 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int argi)
 {
-	if ((argi >= 32) && (argi < 127))
+	if ((argi >= ' ') && (argi < 127))
 		return (16384);
 	return (0);
 }
