@@ -6,14 +6,14 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 13:40:47 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 11:13:36 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/12 11:00:52 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
+#include <bsd/string.h>
 #include <ctype.h>
 #include "libft.h"
 
@@ -29,11 +29,6 @@ int	main(int argc, char *argv[argc])
 	char	**ptrptr;
 
 	if (argc != 2)
-	{
-		printf("Error: incorrect number of arguments!\n");
-		printf("Please write what function is to be tested\n");
-		return (0);
-	}
 	if (!strcmp(argv[1], "ft_atoi"))
 	{
 		strncpy(ptr1, "\t\v\f\r \n-2147483649continueing", 50);
@@ -223,6 +218,8 @@ int	main(int argc, char *argv[argc])
 		memset(ptr1, 'r', 6);
 		ptr1[14] = 'a';
 		ft_putnbr_fd(ft_strlen(ptr1), 1);
+		write(1, "\n", 1);
+		ft_putnbr_fd(strlcat(ptr1, "lorem ipsum dolor sit amet", 15), 1);
 		write(1, "\n", 1);
 		ft_putnbr_fd(ft_strlcat(ptr1, "lorem ipsum dolor sit amet", 15), 1);
 		write(1, "\n", 1);

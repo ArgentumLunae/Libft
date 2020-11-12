@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 17:41:54 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 11:56:55 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/11 14:46:09 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char				**ft_split(char const *s, char c)
 		if (split[offset] == NULL)
 		{
 			freesplit(split, offset);
-			break ;
+			return (NULL);
 		}
 		offset++;
 	}
