@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/28 14:35:47 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/12 17:03:55 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/13 11:10:58 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	tdest = (char *)dest;
 	tsrc = (char *)src;
 	offset = 0;
-	if (dest == 0 && src == 0)
-		return (0);
-	if ((dest >= src) && (dest < src + n))
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (dest >= src)
 	{
 		while (0 < n)
 		{

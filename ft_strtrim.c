@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 12:50:07 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/12 11:08:32 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/13 11:23:44 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	offset = 0;
 	start = 0;
-	if (s1 == NULL || set == NULL)
+	if (s1 == NULL)
 		return (NULL);
+	if (set == NULL)
+		return(ft_strdup(s1));
 	len = ft_strlen((char *)s1);
 	while (offset < ft_strlen((char *)set) && len != 0)
 	{
