@@ -6,7 +6,7 @@
 #    By: mteerlin <mteerlin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/28 15:02:52 by mteerlin      #+#    #+#                  #
-#    Updated: 2020/11/10 12:13:50 by mteerlin      ########   odam.nl          #
+#    Updated: 2020/11/12 15:57:55 by mteerlin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,12 +49,12 @@ so:
 clean:
 			rm -f *.o *.so
 
-fclean:			
+fclean:
 			$(MAKE) clean
 			rm -f $(NAME)
 
-re:				
-			$(MAKE) fclean 
+re:
+			$(MAKE) fclean
 			$(MAKE) all
 
 .PHONY:		all clean fclean re

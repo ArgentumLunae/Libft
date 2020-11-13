@@ -6,11 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 12:50:07 by mteerlin      #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2020/11/11 14:39:07 by mteerlin      ########   odam.nl         */
-=======
-/*   Updated: 2020/11/10 14:35:17 by mteerlin      ########   odam.nl         */
->>>>>>> 92815fff143175e6faa60d8a270c9e040ad8dee7
+/*   Updated: 2020/11/12 11:08:32 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

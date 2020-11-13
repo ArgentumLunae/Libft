@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 13:40:47 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/12 11:00:52 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/12 15:51:25 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ int	main(int argc, char *argv[argc])
 	size_t	n;
 	size_t	m;
 	char	c;
-	char	ptr1[500];
-	char	ptr2[500];
+	char	ptr1[50];
+	char	ptr2[50];
 	char	*ptr3;
 	char	**ptrptr;
 
 	if (argc != 2)
+	{
+		printf("incorrect number of arguments.\n");
+		return (0);
+	}
 	if (!strcmp(argv[1], "ft_atoi"))
 	{
-		strncpy(ptr1, "\t\v\f\r \n-2147483649continueing", 50);
+		strncpy(ptr1, "\t\v\f\r \n-2147483657continueing", 50);
 		printf("the number is: %i\n", atoi(ptr1));
 		printf("the number is: %i\n", ft_atoi(ptr1));
 		return (0);
@@ -46,12 +50,18 @@ int	main(int argc, char *argv[argc])
 		ft_bzero(ptr1, 5);
 		write(1, ptr1, 50);
 		write(1, "\n", 1);
+		return (0);
 	}
 	if (!strcmp(argv[1], "ft_calloc"))
 	{
-		m = 0;
-		n = 0;
+		m = 9999;
+		n = 9999;
 		ptr3 = (char *)calloc(m, n);
+		if (!ptr3)
+		{
+			printf("allocation failed");
+			return (0);
+		}
 		strncpy(ptr3, "this is something", 50);
 		printf("%s\n", ptr3);
 		free(ptr3);
@@ -191,7 +201,7 @@ int	main(int argc, char *argv[argc])
 	if (!strcmp(argv[1], "ft_split"))
 	{
 		i = 0;
-		ptr3 = "lorem ipsum d olor sit amet, consectetur adipiscing elit. Sed non risus. Suspendiss e";
+		ptr3 = NULL;
 		if (!(ptrptr = ft_split(ptr3, ' ')))
 		{
 			write(1, "NULL\n", 5);
@@ -215,15 +225,20 @@ int	main(int argc, char *argv[argc])
 	if (!strcmp(argv[1], "ft_strlcat"))
 	{
 		memset(ptr1, 0, 15);
-		memset(ptr1, 'r', 6);
+		strcpy(ptr1, "!");
+		memset(ptr2, 0, 15);
+		strcpy(ptr2, "!");
 		ptr1[14] = 'a';
 		ft_putnbr_fd(ft_strlen(ptr1), 1);
 		write(1, "\n", 1);
-		ft_putnbr_fd(strlcat(ptr1, "lorem ipsum dolor sit amet", 15), 1);
+		ft_putnbr_fd(strlcat(ptr1, "HelloWorld!", 100), 1);
 		write(1, "\n", 1);
-		ft_putnbr_fd(ft_strlcat(ptr1, "lorem ipsum dolor sit amet", 15), 1);
+		ft_putnbr_fd(ft_strlcat(ptr2, "HelloWorld!", 100), 1);
 		write(1, "\n", 1);
-		write(1, ptr1, ft_strlen(ptr1));
+		ft_putstr_fd(ptr1, 1);
+		write(1, "\n", 1);
+		ft_putstr_fd(ptr2, 1);
+		write(1, "\n", 1);
 		return (0);
 	}
 	if (!strcmp(argv[1], "ft_strlcpy"))

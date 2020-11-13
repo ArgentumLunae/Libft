@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/30 14:36:09 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/04 15:05:29 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/12 17:23:49 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	max_size = ((size_t)-1) / 2;
-	if (max_size / nmemb < size)
+	if (nmemb != 0 && max_size / nmemb < size)
 		return (NULL);
-	if (!(ptr = malloc(nmemb * size)))
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
 		return (NULL);
 	ft_bzero(ptr, nmemb * size);
 	return (ptr);

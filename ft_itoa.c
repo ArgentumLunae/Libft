@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/04 11:00:28 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 11:05:20 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/12 15:59:31 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ static int	buildlen(size_t len, int n)
 {
 	if (n < 0)
 		len++;
-	while (n /= 10)
+	while (n / 10)
+	{
+		n /= 10;
 		len++;
+	}
 	return (len);
 }
 
