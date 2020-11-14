@@ -6,14 +6,14 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 14:49:17 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 10:47:41 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/13 11:39:11 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(const char *s)
 {
 	int		len;
 	char	*dup;
