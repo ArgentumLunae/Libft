@@ -6,11 +6,12 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/07 14:09:49 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/12 11:54:08 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/14 19:14:29 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
@@ -18,8 +19,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 
 	if (lst == NULL)
 		return ;
-	temp = lst;
-	lst = lst->next;
-	(*del)(temp);
+	temp = lst->next;
+	del(lst->content);
+	free(lst);
+	lst = temp;
 	return ;
 }

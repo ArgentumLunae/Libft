@@ -6,7 +6,7 @@
 #    By: mteerlin <mteerlin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/28 15:02:52 by mteerlin      #+#    #+#                  #
-#    Updated: 2020/11/12 15:57:55 by mteerlin      ########   odam.nl          #
+#    Updated: 2020/11/14 19:52:28 by mteerlin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ endif
 
 all: 		$(NAME)
 
-$(NAME):	$(REG_OBJ) $(BONUS_OBJ)
-				ar rcs $(NAME) $(REG_OBJ) $(BONUS_OBJ)
+$(NAME):	$(OBJECTS)
+				ar rcs $(NAME) $(OBJECTS)
 
 %.o:		%.c $(HEADER)
 			$(CC) -c $(CFLAGS) -o $@ $<
@@ -44,7 +44,7 @@ bonus:
 			$(MAKE) WITH_BONUS=1 all
 
 so:
-			$(CC) -shared -o libft.so -fPIC $(REG_OBJ) $(BONUS_OBJ)
+			$(CC) -shared -o libft.so -fPIC $(OBJECTS) 
 
 clean:
 			rm -f *.o *.so
