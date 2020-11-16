@@ -6,11 +6,10 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 19:44:32 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/06 11:39:08 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/16 12:29:29 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <string.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

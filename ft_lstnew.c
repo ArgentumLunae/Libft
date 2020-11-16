@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/07 11:40:23 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/09 14:08:03 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/16 12:30:57 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void *content)
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
-		return (0);
+		return (NULL);
 	new->content = content;
 	new->next = (void *)NULL;
 	return (new);
