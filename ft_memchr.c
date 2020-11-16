@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/28 15:07:23 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/13 11:12:10 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/13 11:48:05 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	offset;
-	char	*ts;
+	size_t			offset;
+	unsigned char	*ts;
 
 	offset = 0;
-	ts = (char *)s;
+	ts = (unsigned char *)s;
 	while (offset < n)
 	{
 		if (ts[offset] == (unsigned char)c)

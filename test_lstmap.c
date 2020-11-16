@@ -6,7 +6,7 @@
 /*   By: mteerlin <mteerlin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 18:56:03 by mteerlin      #+#    #+#                 */
-/*   Updated: 2020/11/10 19:30:06 by mteerlin      ########   odam.nl         */
+/*   Updated: 2020/11/10 19:22:53 by mteerlin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int main(void)
 	printf("l->next content: %s\n", l->next->content);
 	printf("l->next->next content: %s\n", l->next->next->content);
 	printf("%s\n", l->content);
-	ft_putstr_fd(l->content, 1);
 	res = ft_lstmap(l, lstmap_f, lstmap_del);
 	printf("%s\n", l->content);
 	return (0);
